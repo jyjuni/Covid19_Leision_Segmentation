@@ -21,6 +21,16 @@ def show_pair(img, mask, idx):
     plt.tight_layout()
     plt.show()
 
+def show_datasets(train_dataset, valid_dataset, test_dataset):
+    plt.figure()
+    plt.title('Data split distribution')
+    plt.bar(0, len(train_dataset), label='Train')
+    plt.bar(1, len(valid_dataset), label='Validation')
+    plt.bar(2, len(test_dataset), label='Test')
+    plt.ylabel('Number of samples')
+    plt.xticks([0,1,2],['Train', 'Validation', 'Test'])
+    plt.legend()
+    plt.show()
 
 def show_mask(model, dataloader, verbose=True):
 

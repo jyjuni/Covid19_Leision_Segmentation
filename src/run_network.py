@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import cv2
 import torch
 from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.utils import class_weight
 
 
 def jaccard_coeff_binary(y_pred, y_true):
@@ -249,10 +250,18 @@ def test_net(net, test_dataloader, loss_function, save_dir):
     return test_loss, test_dice, test_jaccard, test_accuracy, test_CM
 
 
+
 def get_total_params(model):
     """return the total number of parameters"""
     all_params = [param.numel() for param in model.parameters() if param.requires_grad]
     return sum(all_params)
+
+
+def get_class_weight(dataset):
+    y = dataset[0]["mask"].flatten()
+    class_weights = class_weight.compute_class_weight(class_weight='balanced', classes =np.unique(y), y=y.numpy())
+    class_weights = torch.tensor(class_weights,dtype=torch.float).cuda()
+    return class_weights
 
 def show_training(EPOCHS, train_loss, valid_loss, train_dice, valid_dice, train_jaccard, valid_jaccard):
     """plot all scores during training"""
