@@ -22,12 +22,13 @@ def dice_coeff_binary(y_pred, y_true):
         union = torch.sum(y_pred.float()) + torch.sum(y_true.float())
         return ((2 * inter.float() + eps) / (union.float() + eps)).cpu().numpy()
     
-def train_net(net, epochs, train_dataloader, valid_dataloader, optimizer, criteria):
+def train_net(net, epochs, train_dataloader, valid_dataloader, optimizer, criteria, save_dir, patience=5):
     """training function"""
-    trigger_times, patience = 0, 5
+    trigger_times = 0
     last_loss = float("inf")
-    if not os.path.isdir('{0}'.format(net.name)):
-        os.mkdir('{0}'.format(net.name))
+    save_path = os.path.join(save_dir, net.name)
+    if not os.path.isdir(save_path):
+        os.mkdir(save_path)
     
     n_train = len(train_dataloader)
     n_valid = len(valid_dataloader)    
@@ -156,7 +157,7 @@ def train_net(net, epochs, train_dataloader, valid_dataloader, optimizer, criter
         print(f'EPOCH {epoch + 1}/{epochs} - Training Loss: {average_training_loss:08f}, Training DICE score: {average_training_dice:08f}, Training Jaccard score: {average_training_jaccard:08f}, Validation Loss: {average_validation_loss:08f}, Validation DICE score: {average_validation_dice:08f}, Validation Jaccard score: {average_validation_jaccard:08f}')
 
         # Saving Checkpoints
-        torch.save(net.state_dict(), f'{net.name}/epoch_{epoch+1:03}.pth')
+        torch.save(net.state_dict(), f'{save_path}/epoch_{epoch+1:03}.pth')
     
     return train_loss, train_dice, train_jaccard, valid_loss, valid_dice, valid_jaccard
 
@@ -248,31 +249,36 @@ def test_net(net, test_dataloader, loss_function, save_dir):
     return test_loss, test_dice, test_jaccard, test_accuracy, test_CM
 
 
+def get_total_params(model):
+    """return the total number of parameters"""
+    all_params = [param.numel() for param in model.parameters() if param.requires_grad]
+    return sum(all_params)
 
 def show_training(EPOCHS, train_loss, valid_loss, train_dice, valid_dice, train_jaccard, valid_jaccard):
+    """plot all scores during training"""
     plt.figure(figsize=(18,8))
     plt.suptitle('Learning Curve', fontsize=18)
 
     plt.subplot(1,3,1)
-    plt.plot(np.arange(EPOCHS)+1, train_loss, '-o', label='Training Loss')
-    plt.plot(np.arange(EPOCHS)+1, valid_loss, '-o', label='Validation Loss')
-    plt.xticks(np.arange(EPOCHS)+1)
+    plt.plot(np.arange(EPOCHS)+1, train_loss, label='Training Loss')
+    plt.plot(np.arange(EPOCHS)+1, valid_loss, label='Validation Loss')
+    plt.xticks(np.arange(EPOCHS, step=10)+1, rotation=-45)
     plt.xlabel('Epoch', fontsize=15)
     plt.ylabel('Loss', fontsize=15)
     plt.legend()
 
     plt.subplot(1,3,2)
-    plt.plot(np.arange(EPOCHS)+1, train_dice, '-o', label='Training DICE score')
-    plt.plot(np.arange(EPOCHS)+1, valid_dice, '-o', label='Validation DICE score')
-    plt.xticks(np.arange(EPOCHS)+1)
+    plt.plot(np.arange(EPOCHS)+1, train_dice, label='Training DICE score')
+    plt.plot(np.arange(EPOCHS)+1, valid_dice, label='Validation DICE score')
+    plt.xticks(np.arange(EPOCHS, step=10)+1, rotation=-45)
     plt.xlabel('Epoch', fontsize=15)
     plt.ylabel('DICE score', fontsize=15)
     plt.legend()
 
     plt.subplot(1,3,3)
-    plt.plot(np.arange(EPOCHS)+1, train_jaccard, '-o', label='Training Jaccard score')
-    plt.plot(np.arange(EPOCHS)+1, valid_jaccard, '-o', label='Validation Jaccard score')
-    plt.xticks(np.arange(EPOCHS)+1)
+    plt.plot(np.arange(EPOCHS)+1, train_jaccard, label='Training Jaccard score')
+    plt.plot(np.arange(EPOCHS)+1, valid_jaccard, label='Validation Jaccard score')
+    plt.xticks(np.arange(EPOCHS, step=10)+1, rotation=-45)
     plt.xlabel('Epoch', fontsize=15)
     plt.ylabel('Jaccard score', fontsize=15)
     plt.legend()
