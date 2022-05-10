@@ -28,11 +28,11 @@ class DoubleConv(nn.Module):
 class Down(nn.Module):
     """Downscaling with maxpool then double conv"""
 
-    def __init__(self, in_channels, out_channels):
+    def __init__(self, in_channels, out_channels, dropout=0.1):
         super().__init__()
         self.maxpool_conv = nn.Sequential(
             nn.MaxPool2d(2),
-            DoubleConv(in_channels, out_channels)
+            DoubleConv(in_channels, out_channels, dropout)
         )
 
     def forward(self, x):
@@ -43,13 +43,13 @@ class Down(nn.Module):
 class Up(nn.Module):
     """Upscaling then double conv"""
 
-    def __init__(self, in_channels, out_channels):
+    def __init__(self, in_channels, out_channels, dropout=0.1):
         super().__init__()
         self.up_conv = nn.Sequential(
             nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True),
             nn.Conv2d(in_channels, out_channels, kernel_size=1, padding=0),
         ) 
-        self.conv = DoubleConv(out_channels * 2, out_channels)
+        self.conv = DoubleConv(out_channels * 2, out_channels, dropout=0.1)
 
 
     def forward(self, x1, x2):
@@ -57,6 +57,27 @@ class Up(nn.Module):
         x = torch.cat([x1, x2], dim=1)
         x = self.conv(x)
         return x
+
+
+
+# adapt from https://github.com/LeeJunHyun/Image_Segmentation/
+class Up_Conv(nn.Module):
+  """Upscaling then double conv"""
+
+  def __init__(self, in_channels, out_channels, dropout=0.1):
+        super(Up_Conv,self).__init__()
+        self.up = nn.Sequential(
+            nn.Upsample(scale_factor=2),
+            nn.Conv2d(in_channels,out_channels,kernel_size=3,stride=1,padding=1,bias=True),
+		    nn.BatchNorm2d(out_channels),
+			nn.ReLU(inplace=True),
+            nn.Dropout(p=dropout, inplace=False)
+        )
+
+  def forward(self,x):
+        x = self.up(x)
+        return x
+
 
 ######################################## Output layer (1x1 Convolution followed by SoftMax activation)
 class OutConv(nn.Module):
@@ -72,13 +93,13 @@ class OutConv(nn.Module):
 
 # adapt from https://github.com/LeeJunHyun/Image_Segmentation/
 class Recurrent_block(nn.Module):
-    def __init__(self,ch_out,t=2):
+    def __init__(self,out_channels,t=2):
         super(Recurrent_block,self).__init__()
         self.t = t
-        self.ch_out = ch_out
+        self.out_channels = out_channels
         self.conv = nn.Sequential(
-            nn.Conv2d(ch_out,ch_out,kernel_size=3,stride=1,padding=1,bias=True),
-		    nn.BatchNorm2d(ch_out),
+            nn.Conv2d(out_channels,out_channels,kernel_size=3,stride=1,padding=1,bias=True),
+		    nn.BatchNorm2d(out_channels),
 			nn.ReLU(inplace=True)
         )
 
@@ -122,30 +143,31 @@ class Attention_block(nn.Module):
         return x*psi
 
 # adapt from https://github.com/LeeJunHyun/Image_Segmentation/
-class RRCNN_block(nn.Module):
-    def __init__(self,ch_in,ch_out,t=2):
-        super(RRCNN_block,self).__init__()
+class R2Conv_block(nn.Module):
+    def __init__(self,in_channels,out_channels,t=2):
+        super(R2Conv_block,self).__init__()
         self.RCNN = nn.Sequential(
-            Recurrent_block(ch_out,t=t),
-            Recurrent_block(ch_out,t=t)
+            Recurrent_block(out_channels,t=t),
+            Recurrent_block(out_channels,t=t)
         )
-        self.Conv_1x1 = nn.Conv2d(ch_in,ch_out,kernel_size=1,stride=1,padding=0)
+        self.Conv_1x1 = nn.Conv2d(in_channels,out_channels,kernel_size=1,stride=1,padding=0)
 
     def forward(self,x):
         x = self.Conv_1x1(x)
         x1 = self.RCNN(x)
         return x+x1
 
-
+# adapt from https://github.com/LeeJunHyun/Image_Segmentation/
 class single_conv(nn.Module):
-    def __init__(self,ch_in,ch_out):
+    def __init__(self,in_channels,out_channels):
         super(single_conv,self).__init__()
         self.conv = nn.Sequential(
-            nn.Conv2d(ch_in, ch_out, kernel_size=3,stride=1,padding=1,bias=True),
-            nn.BatchNorm2d(ch_out),
+            nn.Conv2d(in_channels, out_channels, kernel_size=3,stride=1,padding=1,bias=True),
+            nn.BatchNorm2d(out_channels),
             nn.ReLU(inplace=True)
         )
 
     def forward(self,x):
         x = self.conv(x)
         return x
+

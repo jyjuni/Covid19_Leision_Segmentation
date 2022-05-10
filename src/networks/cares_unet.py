@@ -4,25 +4,91 @@ Adapt from paper: https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.15231
 Source: https://github.com/zylye123/CARes-UNet/
 """
 
+from tkinter.font import names
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
 
+class CARes_Unet(nn.Module):
+    def __init__(self, name, n_channels, n_classes):
+        super(CARes_Unet,self).__init__()
+        self.name = name
+        
+        self.encoder1 = Conv_Block(n_channels,32)
+        self.down1 = nn.Sequential(
+            BasicConv2d(32, 32, 3, 2, 1),
+            ResBlock(32, 32)
+        )
+        
+        self.encoder2 = Conv_Block(32,64)
+        self.down2 = nn.Sequential(
+            BasicConv2d(64, 64, 3, 2, 1),
+            ResBlock(64, 64)
+        )
+        
+        self.encoder3 = Conv_Block(64,128)
+        self.down3 = nn.Sequential(
+            BasicConv2d(128, 128, 3, 2, 1),
+            ResBlock(128, 128)
+        )
+        
+        self.encoder4 = Conv_Block(128,256)
+        self.down4 = nn.Sequential(
+            BasicConv2d(256, 256, 3, 2, 1),
+            ResBlock(256, 256)
+        )
+        
+        self.decoder5 = Conv_Block(256,512)
+        self.up1 = CARAFE(512, 256)
+        
+        self.decoder6 = Conv_Block(512,256)
+        self.up2 = CARAFE(256, 128)
+        
+        self.decoder7 = Conv_Block(256,128)
+        self.up3 = CARAFE(128, 64)
+        
+        self.decoder8 = Conv_Block(128,64)
+        self.up4 = CARAFE(64, 32)
+        
+        self.conv = Conv_Block(64,32)
+        self.classfier = nn.Conv2d(32, n_classes, kernel_size=1)
+        self.sigmoid = nn.Sigmoid()
+
+        
+    def forward(self, x):
+        x1 = self.encoder1(x)
+        x2 = self.encoder2(self.down1(x1))
+        x3 = self.encoder3(self.down2(x2))
+        x4 = self.encoder4(self.down3(x3))
+
+        x5 = self.decoder5(self.down4(x4))
+        output = torch.cat([x4,self.up1(x5)],dim = 1)
+        output = self.decoder6(output)
+        output = torch.cat([x3,self.up2(output)],dim=1)
+        output = self.decoder7(output)
+        output = torch.cat([x2,self.up3(output)],dim=1)
+        output = self.decoder8(output)
+        output = torch.cat([x1,self.up4(output)],dim=1)
+
+        output = self.conv(output)
+        output = self.classfier(output)
+        output = self.sigmoid(output)
+        return output
+    
 class CARAFE(nn.Module):
-    def __init__(self, inC, outC, Kencoder=3, delta=2, Kup=5, Cm=64): # Kup = Kencoder + 2
+    def __init__(self, inC, outC, Kencoder=3, delta=2, Kup=5, Cm=32): # Kup = Kencoder + 2
         super(CARAFE, self).__init__()
         self.Kencoder = Kencoder
         self.delta = delta
         self.Kup = Kup
         self.down = nn.Conv2d(in_channels=inC, out_channels=Cm, kernel_size=1)  #
-        self.encoder = nn.Conv2d(64, self.delta ** 2 * self.Kup ** 2,
+        self.encoder = nn.Conv2d(32, self.delta ** 2 * self.Kup ** 2,
                                  self.Kencoder, 1, self.Kencoder// 2)
         self.out = nn.Conv2d(inC, outC, 1)
  
     def forward(self, in_tensor):
         N, C, H, W = in_tensor.size()
- 
 
         kernel_tensor = self.down(in_tensor)  
         kernel_tensor = self.encoder(kernel_tensor)  
@@ -106,69 +172,3 @@ class Conv_Block(nn.Module):
         x1 = self.bconv(x)
         x2 = self.resnet(x1)
         return x2
-
-
-class CARes_Unet(nn.Module):
-    def __init__(self):
-        super(CARes_Unet,self).__init__()
-        self.encoder1 = Conv_Block(1,64)
-        self.down1 = nn.Sequential(
-            BasicConv2d(64, 64, 3, 2, 1),
-            ResBlock(64, 64)
-        )
-        
-        self.encoder2 = Conv_Block(64,128)
-        self.down2 = nn.Sequential(
-            BasicConv2d(128, 128, 3, 2, 1),
-            ResBlock(128, 128)
-        )
-        
-        self.encoder3 = Conv_Block(128,256)
-        self.down3 = nn.Sequential(
-            BasicConv2d(256, 256, 3, 2, 1),
-            ResBlock(256, 256)
-        )
-        
-        self.encoder4 = Conv_Block(256,512)
-        self.down4 = nn.Sequential(
-            BasicConv2d(512, 512, 3, 2, 1),
-            ResBlock(512, 512)
-        )
-        
-        self.decoder5 = Conv_Block(512,1024)
-        self.up1 = CARAFE(1024, 512)
-        
-        self.decoder6 = Conv_Block(1024,512)
-        self.up2 = CARAFE(512, 256)
-        
-        self.decoder7 = Conv_Block(512,256)
-        self.up3 = CARAFE(256, 128)
-        
-        self.decoder8 = Conv_Block(256,128)
-        self.up4 = CARAFE(128, 64)
-        
-        self.conv = Conv_Block(128,64)
-        self.classfier = nn.Conv2d(64, 2, kernel_size=1)
-        self.sigmoid = nn.Sigmoid()
-
-        
-    def forward(self, x):
-        x1 = self.encoder1(x)
-        x2 = self.encoder2(self.down1(x1))
-        x3 = self.encoder3(self.down2(x2))
-        x4 = self.encoder4(self.down3(x3))
-
-        x5 = self.decoder5(self.down4(x4))
-        output = torch.cat([x4,self.up1(x5)],dim = 1)
-        output = self.decoder6(output)
-        output = torch.cat([x3,self.up2(output)],dim=1)
-        output = self.decoder7(output)
-        output = torch.cat([x2,self.up3(output)],dim=1)
-        output = self.decoder8(output)
-        output = torch.cat([x1,self.up4(output)],dim=1)
-
-        output = self.conv(output)
-        output = self.classfier(output)
-        output = self.sigmoid(output)
-        return output
-    

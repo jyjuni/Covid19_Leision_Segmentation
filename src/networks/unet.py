@@ -1,3 +1,13 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""U-net architecture"""
+
+__author__ = "Yijia Jin"
+__copyright__ = "Copyright 2022, Yijia Jin"
+__version__ = "1.0.0"
+__email__ = "yj2682@columbia.edu"
+
 import torch
 import torch.nn as nn
 from .blocks import DoubleConv, Down, Up, OutConv
@@ -10,15 +20,15 @@ class UNet_Reduced(nn.Module):
         self.n_classes = n_classes
 
 
-        self.inputL = DoubleConv(n_channels, 32)
-        self.down1 = Down(32, 32)
-        self.down2 = Down(32, 64)
-        self.down3 = Down(64, 128)
-        self.down4 = Down(128, 256)
-        self.up1 = Up(256, 128)
-        self.up2 = Up(128, 64)
-        self.up3 = Up(64, 32)
-        self.up4 = Up(32, 32)
+        self.inputL = DoubleConv(n_channels, 32, 0.1)
+        self.down1 = Down(32, 32, 0.1)
+        self.down2 = Down(32, 64, 0.2)
+        self.down3 = Down(64, 128, 0.2)
+        self.down4 = Down(128, 256, 0.3)
+        self.up1 = Up(256, 128, 0.2)
+        self.up2 = Up(128, 64, 0.2)
+        self.up3 = Up(64, 32, 0.1)
+        self.up4 = Up(32, 32, 0.1)
         self.outputL = OutConv(32, n_classes)
 
     def forward(self, x):
@@ -45,16 +55,16 @@ class UNet(nn.Module):
         self.n_channels = n_channels
         self.n_classes = n_classes
 
-        self.inputL = DoubleConv(n_channels, 32)
-        self.down1 = Down(32, 64)
-        self.down2 = Down(64, 128)
-        self.down3 = Down(128, 256)
-        self.down4 = Down(256, 512)
-        self.up1 = Up(512, 256)
-        self.up2 = Up(256, 128)
-        self.up3 = Up(128, 64)
-        self.up4 = Up(64, 32)
-        self.outputL = OutConv(32, n_classes)
+        self.inputL = DoubleConv(n_channels, 32, 0.1)
+        self.down1 = Down(32, 64, 0.1)
+        self.down2 = Down(64, 128, 0.2)
+        self.down3 = Down(128, 256, 0.2)
+        self.down4 = Down(256, 512, 0.3)
+        self.up1 = Up(512, 256, 0.2)
+        self.up2 = Up(256, 128, 0.2)
+        self.up3 = Up(128, 64, 0.1)
+        self.up4 = Up(64, 32, 0.1)
+        self.outputL = OutConv(32, n_classes, 0.1)
 
 
 
