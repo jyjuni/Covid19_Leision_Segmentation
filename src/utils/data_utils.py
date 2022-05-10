@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 import torch
-from sklearn.utils import class_weight
 
     
 def show_pair(img, mask, idx):
@@ -33,7 +32,6 @@ def show_datasets(train_dataset, valid_dataset, test_dataset):
     plt.show()
 
 def show_mask(model, dataloader, verbose=True):
-
     # Take the first batch
     for batch in dataloader:
         sample_batch = batch
@@ -103,9 +101,3 @@ def show_mask(model, dataloader, verbose=True):
     plt.tight_layout()
     plt.show()
 
-
-def get_class_weight(dataset):
-    y = dataset[11]["mask"].flatten()
-    class_weights = class_weight.compute_class_weight(class_weight='balanced', classes =np.unique(y), y=y.numpy())
-    class_weights = torch.tensor(class_weights,dtype=torch.float).cuda()
-    return class_weights

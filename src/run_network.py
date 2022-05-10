@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
 from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.utils import class_weight
 
@@ -22,8 +24,42 @@ def dice_coeff_binary(y_pred, y_true):
         inter = torch.dot(y_pred.view(-1).float(), y_true.view(-1).float())
         union = torch.sum(y_pred.float()) + torch.sum(y_true.float())
         return ((2 * inter.float() + eps) / (union.float() + eps)).cpu().numpy()
+
+def dice_loss(input, target):
+    input = torch.sigmoid(input)
+    smooth = 1.0
+    iflat = input.view(-1)
+    tflat = target.view(-1)
+    intersection = (iflat * tflat).sum()
+    return ((2.0 * intersection + smooth) / (iflat.sum() + tflat.sum() + smooth))
+
+class FocalLoss(nn.Module):
+    def __init__(self, gamma):
+        super().__init__()
+        self.gamma = gamma
+
+    def forward(self, input, target):
+        if not (target.size() == input.size()):
+            raise ValueError("Target size ({}) must be the same as input size ({})"
+                             .format(target.size(), input.size()))
+        max_val = (-input).clamp(min=0)
+        loss = input - input * target + max_val + \
+            ((-max_val).exp() + (-input - max_val).exp()).log()
+        invprobs = F.logsigmoid(-input * (target * 2.0 - 1.0))
+        loss = (invprobs * self.gamma).exp() * loss
+        return loss.mean()
     
-def train_net(net, epochs, train_dataloader, valid_dataloader, optimizer, criteria, save_dir, patience=5):
+class MixedLoss(nn.Module):
+    def __init__(self, alpha, gamma):
+        super().__init__()
+        self.alpha = alpha
+        self.focal = FocalLoss(gamma)
+
+    def forward(self, input, target):
+        loss = self.alpha*self.focal(input, target) - torch.log(dice_loss(input, target))
+        return loss.mean()
+
+def train_net(net, epochs, train_dataloader, valid_dataloader, optimizer, criteria, save_dir, scheduler=None, patience=10):
     """training function"""
     trigger_times = 0
     last_loss = float("inf")
@@ -87,7 +123,8 @@ def train_net(net, epochs, train_dataloader, valid_dataloader, optimizer, criter
             # Print the progress
             print(f'EPOCH {epoch + 1}/{epochs} - Training Batch {i+1}/{n_train} - Loss: {batch_loss:08f}, DICE score: {batch_dice_score:08f}, Jaccard score: {batch_jaccard_score:08f}            ', end='\r')
             
-
+        if scheduler:
+            scheduler.step()
         
         average_training_loss = np.array(train_batch_loss).mean()
         average_training_dice = np.array(train_batch_dice).mean()
@@ -262,6 +299,7 @@ def get_class_weight(dataset):
     class_weights = class_weight.compute_class_weight(class_weight='balanced', classes =np.unique(y), y=y.numpy())
     class_weights = torch.tensor(class_weights,dtype=torch.float).cuda()
     return class_weights
+
 
 def show_training(EPOCHS, train_loss, valid_loss, train_dice, valid_dice, train_jaccard, valid_jaccard):
     """plot all scores during training"""
