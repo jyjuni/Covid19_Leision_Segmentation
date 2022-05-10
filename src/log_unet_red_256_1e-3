@@ -1,0 +1,157 @@
+trigger times: 0lidation Batch 19/19 - Loss: 0.560728, DICE score: 0.051059, Jaccard score: 0.026199            
+EPOCH 1/100 - Training Loss: 0.501002, Training DICE score: 0.124475, Training Jaccard score: 0.067113, Validation Loss: 0.480984, Validation DICE score: 0.204267, Validation Jaccard score: 0.121210
+trigger times: 0lidation Batch 19/19 - Loss: 0.502585, DICE score: 0.098881, Jaccard score: 0.052012            
+EPOCH 2/100 - Training Loss: 0.442326, Training DICE score: 0.174849, Training Jaccard score: 0.096667, Validation Loss: 0.469400, Validation DICE score: 0.262219, Validation Jaccard score: 0.160990
+trigger times: 1lidation Batch 19/19 - Loss: 0.489397, DICE score: 0.168870, Jaccard score: 0.092222            
+EPOCH 3/100 - Training Loss: 0.424125, Training DICE score: 0.203195, Training Jaccard score: 0.114692, Validation Loss: 0.504387, Validation DICE score: 0.374825, Validation Jaccard score: 0.246775
+trigger times: 0lidation Batch 19/19 - Loss: 0.473966, DICE score: 0.120765, Jaccard score: 0.064263            
+EPOCH 4/100 - Training Loss: 0.409146, Training DICE score: 0.241775, Training Jaccard score: 0.139650, Validation Loss: 0.466017, Validation DICE score: 0.311207, Validation Jaccard score: 0.199210
+trigger times: 1lidation Batch 19/19 - Loss: 0.462714, DICE score: 0.276757, Jaccard score: 0.160603            
+EPOCH 5/100 - Training Loss: 0.397365, Training DICE score: 0.259193, Training Jaccard score: 0.150931, Validation Loss: 0.498530, Validation DICE score: 0.377295, Validation Jaccard score: 0.245846
+trigger times: 0lidation Batch 19/19 - Loss: 0.453535, DICE score: 0.247695, Jaccard score: 0.141354            
+EPOCH 6/100 - Training Loss: 0.388371, Training DICE score: 0.283145, Training Jaccard score: 0.167357, Validation Loss: 0.469003, Validation DICE score: 0.402434, Validation Jaccard score: 0.266490
+trigger times: 1lidation Batch 19/19 - Loss: 0.489947, DICE score: 0.513100, Jaccard score: 0.345080            
+EPOCH 7/100 - Training Loss: 0.379266, Training DICE score: 0.308650, Training Jaccard score: 0.184921, Validation Loss: 0.556554, Validation DICE score: 0.472367, Validation Jaccard score: 0.333427
+trigger times: 0lidation Batch 19/19 - Loss: 0.452720, DICE score: 0.336945, Jaccard score: 0.202606            
+EPOCH 8/100 - Training Loss: 0.372378, Training DICE score: 0.329152, Training Jaccard score: 0.199528, Validation Loss: 0.509441, Validation DICE score: 0.461330, Validation Jaccard score: 0.317920
+trigger times: 0lidation Batch 19/19 - Loss: 0.444964, DICE score: 0.336270, Jaccard score: 0.202118            
+EPOCH 9/100 - Training Loss: 0.366505, Training DICE score: 0.342287, Training Jaccard score: 0.209286, Validation Loss: 0.484936, Validation DICE score: 0.457415, Validation Jaccard score: 0.312152
+trigger times: 0alidation Batch 19/19 - Loss: 0.408155, DICE score: 0.258193, Jaccard score: 0.148233            
+EPOCH 10/100 - Training Loss: 0.361997, Training DICE score: 0.349933, Training Jaccard score: 0.215255, Validation Loss: 0.439180, Validation DICE score: 0.423651, Validation Jaccard score: 0.282094
+trigger times: 1alidation Batch 19/19 - Loss: 0.421447, DICE score: 0.274548, Jaccard score: 0.159117            
+EPOCH 11/100 - Training Loss: 0.357357, Training DICE score: 0.369163, Training Jaccard score: 0.230650, Validation Loss: 0.468115, Validation DICE score: 0.415071, Validation Jaccard score: 0.276464
+trigger times: 2alidation Batch 19/19 - Loss: 0.392387, DICE score: 0.307547, Jaccard score: 0.181717            
+EPOCH 12/100 - Training Loss: 0.352803, Training DICE score: 0.385655, Training Jaccard score: 0.242247, Validation Loss: 0.472240, Validation DICE score: 0.430633, Validation Jaccard score: 0.289646
+trigger times: 3alidation Batch 19/19 - Loss: 0.416635, DICE score: 0.356535, Jaccard score: 0.216941            
+EPOCH 13/100 - Training Loss: 0.350544, Training DICE score: 0.375869, Training Jaccard score: 0.234726, Validation Loss: 0.473389, Validation DICE score: 0.441862, Validation Jaccard score: 0.299918
+trigger times: 0alidation Batch 19/19 - Loss: 0.386838, DICE score: 0.278366, Jaccard score: 0.161687            
+EPOCH 14/100 - Training Loss: 0.346640, Training DICE score: 0.397544, Training Jaccard score: 0.251025, Validation Loss: 0.451573, Validation DICE score: 0.427210, Validation Jaccard score: 0.285897
+trigger times: 1alidation Batch 19/19 - Loss: 0.420583, DICE score: 0.309939, Jaccard score: 0.183389            
+EPOCH 15/100 - Training Loss: 0.343487, Training DICE score: 0.413197, Training Jaccard score: 0.263994, Validation Loss: 0.478487, Validation DICE score: 0.446442, Validation Jaccard score: 0.302376
+trigger times: 2alidation Batch 19/19 - Loss: 0.425312, DICE score: 0.414564, Jaccard score: 0.261483            
+EPOCH 16/100 - Training Loss: 0.341115, Training DICE score: 0.421439, Training Jaccard score: 0.270347, Validation Loss: 0.533421, Validation DICE score: 0.475886, Validation Jaccard score: 0.332294
+trigger times: 0alidation Batch 19/19 - Loss: 0.365691, DICE score: 0.229648, Jaccard score: 0.129719            
+EPOCH 17/100 - Training Loss: 0.339119, Training DICE score: 0.431568, Training Jaccard score: 0.278072, Validation Loss: 0.436607, Validation DICE score: 0.408797, Validation Jaccard score: 0.271009
+trigger times: 1alidation Batch 19/19 - Loss: 0.387370, DICE score: 0.334891, Jaccard score: 0.201123            
+EPOCH 18/100 - Training Loss: 0.339545, Training DICE score: 0.391299, Training Jaccard score: 0.246376, Validation Loss: 0.454958, Validation DICE score: 0.430657, Validation Jaccard score: 0.286532
+trigger times: 2alidation Batch 19/19 - Loss: 0.390170, DICE score: 0.292914, Jaccard score: 0.171587            
+EPOCH 19/100 - Training Loss: 0.337744, Training DICE score: 0.403997, Training Jaccard score: 0.257025, Validation Loss: 0.486373, Validation DICE score: 0.468653, Validation Jaccard score: 0.321992
+trigger times: 0alidation Batch 19/19 - Loss: 0.391528, DICE score: 0.298264, Jaccard score: 0.175270            
+EPOCH 20/100 - Training Loss: 0.333797, Training DICE score: 0.456999, Training Jaccard score: 0.299420, Validation Loss: 0.485221, Validation DICE score: 0.448850, Validation Jaccard score: 0.306092
+trigger times: 0alidation Batch 19/19 - Loss: 0.411535, DICE score: 0.230722, Jaccard score: 0.130405            
+EPOCH 21/100 - Training Loss: 0.334131, Training DICE score: 0.428045, Training Jaccard score: 0.277094, Validation Loss: 0.443826, Validation DICE score: 0.446879, Validation Jaccard score: 0.304099
+trigger times: 1alidation Batch 19/19 - Loss: 0.394370, DICE score: 0.314387, Jaccard score: 0.186512            
+EPOCH 22/100 - Training Loss: 0.331557, Training DICE score: 0.468041, Training Jaccard score: 0.308769, Validation Loss: 0.504962, Validation DICE score: 0.461433, Validation Jaccard score: 0.316761
+trigger times: 0alidation Batch 19/19 - Loss: 0.380073, DICE score: 0.260992, Jaccard score: 0.150081            
+EPOCH 23/100 - Training Loss: 0.330154, Training DICE score: 0.478691, Training Jaccard score: 0.317852, Validation Loss: 0.447646, Validation DICE score: 0.432987, Validation Jaccard score: 0.290326
+trigger times: 1alidation Batch 19/19 - Loss: 0.402701, DICE score: 0.256402, Jaccard score: 0.147053            
+EPOCH 24/100 - Training Loss: 0.330879, Training DICE score: 0.444297, Training Jaccard score: 0.289212, Validation Loss: 0.474162, Validation DICE score: 0.440151, Validation Jaccard score: 0.298829
+trigger times: 2alidation Batch 19/19 - Loss: 0.406562, DICE score: 0.248825, Jaccard score: 0.142090            
+EPOCH 25/100 - Training Loss: 0.329519, Training DICE score: 0.462827, Training Jaccard score: 0.305620, Validation Loss: 0.520061, Validation DICE score: 0.430905, Validation Jaccard score: 0.292203
+trigger times: 0alidation Batch 19/19 - Loss: 0.399123, DICE score: 0.335545, Jaccard score: 0.201594            
+EPOCH 26/100 - Training Loss: 0.328300, Training DICE score: 0.477759, Training Jaccard score: 0.318278, Validation Loss: 0.505859, Validation DICE score: 0.481145, Validation Jaccard score: 0.335179
+trigger times: 0alidation Batch 19/19 - Loss: 0.383964, DICE score: 0.348782, Jaccard score: 0.211227            
+EPOCH 27/100 - Training Loss: 0.328130, Training DICE score: 0.469896, Training Jaccard score: 0.310927, Validation Loss: 0.485439, Validation DICE score: 0.471818, Validation Jaccard score: 0.325260
+trigger times: 1alidation Batch 19/19 - Loss: 0.380279, DICE score: 0.337057, Jaccard score: 0.202687            
+EPOCH 28/100 - Training Loss: 0.326800, Training DICE score: 0.487508, Training Jaccard score: 0.326731, Validation Loss: 0.498330, Validation DICE score: 0.468217, Validation Jaccard score: 0.318830
+trigger times: 2alidation Batch 19/19 - Loss: 0.402168, DICE score: 0.424598, Jaccard score: 0.269517            
+EPOCH 29/100 - Training Loss: 0.325556, Training DICE score: 0.512955, Training Jaccard score: 0.348799, Validation Loss: 0.520556, Validation DICE score: 0.504063, Validation Jaccard score: 0.356462
+trigger times: 0alidation Batch 19/19 - Loss: 0.370990, DICE score: 0.369549, Jaccard score: 0.226655            
+EPOCH 30/100 - Training Loss: 0.324868, Training DICE score: 0.522527, Training Jaccard score: 0.358223, Validation Loss: 0.474401, Validation DICE score: 0.487358, Validation Jaccard score: 0.337731
+trigger times: 1alidation Batch 19/19 - Loss: 0.384619, DICE score: 0.314112, Jaccard score: 0.186319            
+EPOCH 31/100 - Training Loss: 0.324922, Training DICE score: 0.511746, Training Jaccard score: 0.347214, Validation Loss: 0.532617, Validation DICE score: 0.457210, Validation Jaccard score: 0.314698
+trigger times: 0alidation Batch 19/19 - Loss: 0.388853, DICE score: 0.388580, Jaccard score: 0.241141            
+EPOCH 32/100 - Training Loss: 0.324735, Training DICE score: 0.508978, Training Jaccard score: 0.345997, Validation Loss: 0.506657, Validation DICE score: 0.514471, Validation Jaccard score: 0.363820
+trigger times: 1alidation Batch 19/19 - Loss: 0.404825, DICE score: 0.399176, Jaccard score: 0.249356            
+EPOCH 33/100 - Training Loss: 0.323793, Training DICE score: 0.521949, Training Jaccard score: 0.356919, Validation Loss: 0.557492, Validation DICE score: 0.478222, Validation Jaccard score: 0.335313
+trigger times: 0alidation Batch 19/19 - Loss: 0.404734, DICE score: 0.381762, Jaccard score: 0.235912            
+EPOCH 34/100 - Training Loss: 0.324830, Training DICE score: 0.497119, Training Jaccard score: 0.335905, Validation Loss: 0.539896, Validation DICE score: 0.481547, Validation Jaccard score: 0.335167
+trigger times: 0alidation Batch 19/19 - Loss: 0.346297, DICE score: 0.291969, Jaccard score: 0.170939            
+EPOCH 35/100 - Training Loss: 0.324334, Training DICE score: 0.492615, Training Jaccard score: 0.330589, Validation Loss: 0.518129, Validation DICE score: 0.459618, Validation Jaccard score: 0.317034
+trigger times: 1alidation Batch 19/19 - Loss: 0.404641, DICE score: 0.390722, Jaccard score: 0.242793            
+EPOCH 36/100 - Training Loss: 0.324498, Training DICE score: 0.488570, Training Jaccard score: 0.328899, Validation Loss: 0.538262, Validation DICE score: 0.474728, Validation Jaccard score: 0.332855
+trigger times: 0alidation Batch 19/19 - Loss: 0.410109, DICE score: 0.320962, Jaccard score: 0.191159            
+EPOCH 37/100 - Training Loss: 0.324134, Training DICE score: 0.494007, Training Jaccard score: 0.331752, Validation Loss: 0.519617, Validation DICE score: 0.483955, Validation Jaccard score: 0.337868
+trigger times: 0alidation Batch 19/19 - Loss: 0.377770, DICE score: 0.452319, Jaccard score: 0.292256            
+EPOCH 38/100 - Training Loss: 0.322380, Training DICE score: 0.538366, Training Jaccard score: 0.372190, Validation Loss: 0.515516, Validation DICE score: 0.513984, Validation Jaccard score: 0.363858
+trigger times: 0alidation Batch 19/19 - Loss: 0.385166, DICE score: 0.345828, Jaccard score: 0.209064            
+EPOCH 39/100 - Training Loss: 0.322461, Training DICE score: 0.527969, Training Jaccard score: 0.362811, Validation Loss: 0.506601, Validation DICE score: 0.485971, Validation Jaccard score: 0.339991
+trigger times: 0alidation Batch 19/19 - Loss: 0.375271, DICE score: 0.366481, Jaccard score: 0.224351            
+EPOCH 40/100 - Training Loss: 0.322631, Training DICE score: 0.519299, Training Jaccard score: 0.355474, Validation Loss: 0.460222, Validation DICE score: 0.468852, Validation Jaccard score: 0.321254
+trigger times: 1alidation Batch 19/19 - Loss: 0.402686, DICE score: 0.289467, Jaccard score: 0.169226            
+EPOCH 41/100 - Training Loss: 0.322622, Training DICE score: 0.514949, Training Jaccard score: 0.350772, Validation Loss: 0.496303, Validation DICE score: 0.467506, Validation Jaccard score: 0.321107
+trigger times: 2alidation Batch 19/19 - Loss: 0.458266, DICE score: 0.374592, Jaccard score: 0.230460            
+EPOCH 42/100 - Training Loss: 0.321412, Training DICE score: 0.542859, Training Jaccard score: 0.376605, Validation Loss: 0.522670, Validation DICE score: 0.524759, Validation Jaccard score: 0.374617
+trigger times: 0alidation Batch 19/19 - Loss: 0.444578, DICE score: 0.297200, Jaccard score: 0.174536            
+EPOCH 43/100 - Training Loss: 0.322558, Training DICE score: 0.514074, Training Jaccard score: 0.351113, Validation Loss: 0.519893, Validation DICE score: 0.485494, Validation Jaccard score: 0.339894
+trigger times: 1alidation Batch 19/19 - Loss: 0.387788, DICE score: 0.387710, Jaccard score: 0.240471            
+EPOCH 44/100 - Training Loss: 0.320766, Training DICE score: 0.561968, Training Jaccard score: 0.394594, Validation Loss: 0.553365, Validation DICE score: 0.500049, Validation Jaccard score: 0.356143
+trigger times: 0alidation Batch 19/19 - Loss: 0.377688, DICE score: 0.432301, Jaccard score: 0.275755            
+EPOCH 45/100 - Training Loss: 0.320514, Training DICE score: 0.573070, Training Jaccard score: 0.404742, Validation Loss: 0.518038, Validation DICE score: 0.498645, Validation Jaccard score: 0.354341
+trigger times: 0alidation Batch 19/19 - Loss: 0.380697, DICE score: 0.406760, Jaccard score: 0.255303            
+EPOCH 46/100 - Training Loss: 0.321204, Training DICE score: 0.543597, Training Jaccard score: 0.377537, Validation Loss: 0.501812, Validation DICE score: 0.507086, Validation Jaccard score: 0.359310
+trigger times: 1alidation Batch 19/19 - Loss: 0.387658, DICE score: 0.405417, Jaccard score: 0.254247            
+EPOCH 47/100 - Training Loss: 0.321105, Training DICE score: 0.549591, Training Jaccard score: 0.383656, Validation Loss: 0.509821, Validation DICE score: 0.503648, Validation Jaccard score: 0.360309
+trigger times: 0alidation Batch 19/19 - Loss: 0.387114, DICE score: 0.372954, Jaccard score: 0.229222            
+EPOCH 48/100 - Training Loss: 0.321527, Training DICE score: 0.525422, Training Jaccard score: 0.359819, Validation Loss: 0.499304, Validation DICE score: 0.494084, Validation Jaccard score: 0.346093
+trigger times: 1alidation Batch 19/19 - Loss: 0.382808, DICE score: 0.448442, Jaccard score: 0.289027            
+EPOCH 49/100 - Training Loss: 0.321073, Training DICE score: 0.543652, Training Jaccard score: 0.377730, Validation Loss: 0.533200, Validation DICE score: 0.509050, Validation Jaccard score: 0.361925
+trigger times: 0alidation Batch 19/19 - Loss: 0.378276, DICE score: 0.487010, Jaccard score: 0.321886            
+EPOCH 50/100 - Training Loss: 0.320181, Training DICE score: 0.567074, Training Jaccard score: 0.399668, Validation Loss: 0.518550, Validation DICE score: 0.523035, Validation Jaccard score: 0.374373
+trigger times: 0alidation Batch 19/19 - Loss: 0.377402, DICE score: 0.374971, Jaccard score: 0.230747            
+EPOCH 51/100 - Training Loss: 0.321474, Training DICE score: 0.524290, Training Jaccard score: 0.359570, Validation Loss: 0.472444, Validation DICE score: 0.484752, Validation Jaccard score: 0.338966
+trigger times: 1alidation Batch 19/19 - Loss: 0.389061, DICE score: 0.372903, Jaccard score: 0.229183            
+EPOCH 52/100 - Training Loss: 0.320640, Training DICE score: 0.545259, Training Jaccard score: 0.378920, Validation Loss: 0.493154, Validation DICE score: 0.526353, Validation Jaccard score: 0.376094
+trigger times: 2alidation Batch 19/19 - Loss: 0.391957, DICE score: 0.417967, Jaccard score: 0.264196            
+EPOCH 53/100 - Training Loss: 0.320231, Training DICE score: 0.561503, Training Jaccard score: 0.394521, Validation Loss: 0.493734, Validation DICE score: 0.512128, Validation Jaccard score: 0.364223
+trigger times: 3alidation Batch 19/19 - Loss: 0.392560, DICE score: 0.442539, Jaccard score: 0.284142            
+EPOCH 54/100 - Training Loss: 0.320568, Training DICE score: 0.546811, Training Jaccard score: 0.381580, Validation Loss: 0.522399, Validation DICE score: 0.525162, Validation Jaccard score: 0.376299
+trigger times: 0alidation Batch 19/19 - Loss: 0.384508, DICE score: 0.405068, Jaccard score: 0.253972            
+EPOCH 55/100 - Training Loss: 0.319626, Training DICE score: 0.578180, Training Jaccard score: 0.410617, Validation Loss: 0.505016, Validation DICE score: 0.523306, Validation Jaccard score: 0.373087
+trigger times: 1alidation Batch 19/19 - Loss: 0.385881, DICE score: 0.471014, Jaccard score: 0.308056            
+EPOCH 56/100 - Training Loss: 0.319223, Training DICE score: 0.591659, Training Jaccard score: 0.423560, Validation Loss: 0.577541, Validation DICE score: 0.521321, Validation Jaccard score: 0.376113
+trigger times: 0alidation Batch 19/19 - Loss: 0.387909, DICE score: 0.428216, Jaccard score: 0.272440            
+EPOCH 57/100 - Training Loss: 0.320307, Training DICE score: 0.558944, Training Jaccard score: 0.393170, Validation Loss: 0.496232, Validation DICE score: 0.530907, Validation Jaccard score: 0.384235
+trigger times: 1alidation Batch 19/19 - Loss: 0.391942, DICE score: 0.466222, Jaccard score: 0.303969            
+EPOCH 58/100 - Training Loss: 0.319661, Training DICE score: 0.578490, Training Jaccard score: 0.410483, Validation Loss: 0.519755, Validation DICE score: 0.531819, Validation Jaccard score: 0.383176
+trigger times: 2alidation Batch 19/19 - Loss: 0.393239, DICE score: 0.428172, Jaccard score: 0.272404            
+EPOCH 59/100 - Training Loss: 0.318914, Training DICE score: 0.603149, Training Jaccard score: 0.435567, Validation Loss: 0.528850, Validation DICE score: 0.535940, Validation Jaccard score: 0.388078
+trigger times: 0alidation Batch 19/19 - Loss: 0.374040, DICE score: 0.337263, Jaccard score: 0.202836            
+EPOCH 60/100 - Training Loss: 0.319858, Training DICE score: 0.569151, Training Jaccard score: 0.402588, Validation Loss: 0.493529, Validation DICE score: 0.514064, Validation Jaccard score: 0.368119
+trigger times: 1alidation Batch 19/19 - Loss: 0.393920, DICE score: 0.342755, Jaccard score: 0.206822            
+EPOCH 61/100 - Training Loss: 0.319860, Training DICE score: 0.562359, Training Jaccard score: 0.395937, Validation Loss: 0.515521, Validation DICE score: 0.513894, Validation Jaccard score: 0.365828
+trigger times: 2alidation Batch 19/19 - Loss: 0.382692, DICE score: 0.429336, Jaccard score: 0.273346            
+EPOCH 62/100 - Training Loss: 0.319224, Training DICE score: 0.585463, Training Jaccard score: 0.418340, Validation Loss: 0.555153, Validation DICE score: 0.512446, Validation Jaccard score: 0.366457
+trigger times: 0alidation Batch 19/19 - Loss: 0.386570, DICE score: 0.320728, Jaccard score: 0.190992            
+EPOCH 63/100 - Training Loss: 0.319020, Training DICE score: 0.596528, Training Jaccard score: 0.428201, Validation Loss: 0.537915, Validation DICE score: 0.505588, Validation Jaccard score: 0.361269
+trigger times: 1alidation Batch 19/19 - Loss: 0.385090, DICE score: 0.447231, Jaccard score: 0.288022            
+EPOCH 64/100 - Training Loss: 0.319357, Training DICE score: 0.578791, Training Jaccard score: 0.411327, Validation Loss: 0.554593, Validation DICE score: 0.522805, Validation Jaccard score: 0.377711
+trigger times: 2alidation Batch 19/19 - Loss: 0.410587, DICE score: 0.452795, Jaccard score: 0.292653            
+EPOCH 65/100 - Training Loss: 0.318824, Training DICE score: 0.597392, Training Jaccard score: 0.430479, Validation Loss: 0.579383, Validation DICE score: 0.511475, Validation Jaccard score: 0.370690
+trigger times: 0alidation Batch 19/19 - Loss: 0.379213, DICE score: 0.390208, Jaccard score: 0.242397            
+EPOCH 66/100 - Training Loss: 0.319015, Training DICE score: 0.595618, Training Jaccard score: 0.427767, Validation Loss: 0.512199, Validation DICE score: 0.497740, Validation Jaccard score: 0.351376
+trigger times: 0alidation Batch 19/19 - Loss: 0.349146, DICE score: 0.421684, Jaccard score: 0.267173            
+EPOCH 67/100 - Training Loss: 0.320340, Training DICE score: 0.540529, Training Jaccard score: 0.375126, Validation Loss: 0.497395, Validation DICE score: 0.474665, Validation Jaccard score: 0.327956
+trigger times: 1alidation Batch 19/19 - Loss: 0.392597, DICE score: 0.471047, Jaccard score: 0.308085            
+EPOCH 68/100 - Training Loss: 0.319899, Training DICE score: 0.565598, Training Jaccard score: 0.399177, Validation Loss: 0.547445, Validation DICE score: 0.543068, Validation Jaccard score: 0.397035
+trigger times: 0alidation Batch 19/19 - Loss: 0.389460, DICE score: 0.316994, Jaccard score: 0.188350            
+EPOCH 69/100 - Training Loss: 0.319455, Training DICE score: 0.571750, Training Jaccard score: 0.405277, Validation Loss: 0.534844, Validation DICE score: 0.476327, Validation Jaccard score: 0.332206
+trigger times: 1alidation Batch 19/19 - Loss: 0.410759, DICE score: 0.433559, Jaccard score: 0.276780            
+EPOCH 70/100 - Training Loss: 0.318650, Training DICE score: 0.601200, Training Jaccard score: 0.434025, Validation Loss: 0.566954, Validation DICE score: 0.518207, Validation Jaccard score: 0.371569
+trigger times: 0alidation Batch 19/19 - Loss: 0.376091, DICE score: 0.465233, Jaccard score: 0.303129            
+EPOCH 71/100 - Training Loss: 0.318295, Training DICE score: 0.618311, Training Jaccard score: 0.451067, Validation Loss: 0.550328, Validation DICE score: 0.531386, Validation Jaccard score: 0.382517
+trigger times: 1alidation Batch 19/19 - Loss: 0.387127, DICE score: 0.473546, Jaccard score: 0.310226            
+EPOCH 72/100 - Training Loss: 0.318546, Training DICE score: 0.606739, Training Jaccard score: 0.439494, Validation Loss: 0.595088, Validation DICE score: 0.524435, Validation Jaccard score: 0.379412
+trigger times: 0alidation Batch 19/19 - Loss: 0.379187, DICE score: 0.336969, Jaccard score: 0.202623            
+EPOCH 73/100 - Training Loss: 0.318439, Training DICE score: 0.611510, Training Jaccard score: 0.444056, Validation Loss: 0.477225, Validation DICE score: 0.512963, Validation Jaccard score: 0.364102
+trigger times: 1alidation Batch 19/19 - Loss: 0.436907, DICE score: 0.392956, Jaccard score: 0.244521            
+EPOCH 74/100 - Training Loss: 0.318964, Training DICE score: 0.586598, Training Jaccard score: 0.419111, Validation Loss: 0.549167, Validation DICE score: 0.511630, Validation Jaccard score: 0.366614
+trigger times: 2alidation Batch 19/19 - Loss: 0.399117, DICE score: 0.399752, Jaccard score: 0.249806            
+EPOCH 75/100 - Training Loss: 0.318444, Training DICE score: 0.610695, Training Jaccard score: 0.443175, Validation Loss: 0.564100, Validation DICE score: 0.505307, Validation Jaccard score: 0.364259
+trigger times: 0alidation Batch 19/19 - Loss: 0.388896, DICE score: 0.425897, Jaccard score: 0.270565            
+EPOCH 76/100 - Training Loss: 0.318441, Training DICE score: 0.613814, Training Jaccard score: 0.446557, Validation Loss: 0.533773, Validation DICE score: 0.517162, Validation Jaccard score: 0.368082
+trigger times: 1alidation Batch 19/19 - Loss: 0.390222, DICE score: 0.444082, Jaccard score: 0.285415            
+EPOCH 77/100 - Training Loss: 0.318413, Training DICE score: 0.613838, Training Jaccard score: 0.446669, Validation Loss: 0.559851, Validation DICE score: 0.509452, Validation Jaccard score: 0.368346
+trigger times: 2alidation Batch 19/19 - Loss: 0.391799, DICE score: 0.384314, Jaccard score: 0.237865            
+EPOCH 78/100 - Training Loss: 0.318517, Training DICE score: 0.604782, Training Jaccard score: 0.437047, Validation Loss: 0.582744, Validation DICE score: 0.494082, Validation Jaccard score: 0.351312
+EPOCH 79/100 - Training Batch 21/125 - Loss: 0.326528, DICE score: 0.575928, Jaccard score: 0.404424            

@@ -5,8 +5,8 @@
     Attention U-Net model    
 """
 
-__author__ = "Yijia Jin"
-__copyright__ = "Copyright 2022, Yijia Jin"
+__author__ = "Shiqi Hu"
+__copyright__ = "Copyright 2022, Shiqi Hu"
 __version__ = "1.0.0"
 __email__ = "yj2682@columbia.edu"
 
@@ -71,7 +71,6 @@ class AttU_Net(nn.Module):
         d5 = self.Up_conv5(d5)
         
         d4 = self.Up4(d5)
-        d4 = self.Up4(x4)
         x3 = self.Att4(g=d4,x=x3)
         d4 = torch.cat((x3,d4),dim=1)
         d4 = self.Up_conv4(d4)

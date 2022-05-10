@@ -10,16 +10,16 @@ class UNet_Reduced(nn.Module):
         self.n_classes = n_classes
 
 
-        self.inputL = DoubleConv(n_channels, 16)
-        self.down1 = Down(16, 32)
+        self.inputL = DoubleConv(n_channels, 32)
+        self.down1 = Down(32, 32)
         self.down2 = Down(32, 64)
         self.down3 = Down(64, 128)
         self.down4 = Down(128, 256)
         self.up1 = Up(256, 128)
         self.up2 = Up(128, 64)
         self.up3 = Up(64, 32)
-        self.up4 = Up(32, 16)
-        self.outputL = OutConv(16, n_classes)
+        self.up4 = Up(32, 32)
+        self.outputL = OutConv(32, n_classes)
 
     def forward(self, x):
         x1 = self.inputL(x)

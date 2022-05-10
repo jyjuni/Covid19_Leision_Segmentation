@@ -43,13 +43,14 @@ class BasicDataset(TensorDataset):
         # show_pair(img, mask, idx)
 
         img = np.array(img * 255, dtype = np.uint8)
+        # img = cv2.equalizeHist(img)
         
         # resize img
-        img_size = 128
+        img_size = 256
         img = cv2.resize(img, (img_size, img_size), interpolation = cv2.INTER_AREA).astype('uint8')
         mask = cv2.resize(mask, (img_size, img_size), interpolation = cv2.INTER_AREA).astype('uint8')
 
-        # S]dcale img between 0 to 1
+        # Scale img between 0 to 1
         img = np.array(img) / 255.0
         
         # convert mask to binary
@@ -58,6 +59,10 @@ class BasicDataset(TensorDataset):
 
         # add channel axis
         img = np.expand_dims(img, axis=0)
+        # mask = np.expand_dims(mask, axis=0)
+
+        # # HWC to CHW
+        # img = np.transpose(img, (2, 0, 1))
 
         # any customized transforms
         if self.transforms:
