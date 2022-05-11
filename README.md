@@ -13,7 +13,7 @@ Contacts:
 yj2682@columbia.edu, sh4193@columbia.edu, zp2222@columbia.edu
 
 ### Data
-Data files for this project can be found [here](data/data_links.md)
+Data files for this project can be found [here](data/README.md)
 
 ### Model
-Model files for this project can be found [here](model/model_links.md)
+Model files for this project can be found [here](model/README.md)
