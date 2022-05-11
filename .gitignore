@@ -1,5 +1,6 @@
-data/*
-model/*
+data/Paired*
+all_model/*
 UNet_sh*
 log
+utils/data_preprocessing.py
 
