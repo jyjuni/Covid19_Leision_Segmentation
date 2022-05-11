@@ -26,26 +26,26 @@ class AttU_Net(nn.Module):
         self.Maxpool = nn.MaxPool2d(kernel_size=2,stride=2)
 
         self.Conv1 = DoubleConv(in_channels=self.in_channels, out_channels=32, dropout=0.1)
-        self.Conv2 = DoubleConv(in_channels=32,out_channels=32, dropout=0.1)
-        self.Conv3 = DoubleConv(in_channels=32,out_channels=64, dropout=0.2)
-        self.Conv4 = DoubleConv(in_channels=64,out_channels=128, dropout=0.2)
-        self.Conv5 = DoubleConv(in_channels=128,out_channels=256, dropout=0.3)
+        self.Conv2 = DoubleConv(in_channels=32,out_channels=64, dropout=0.1)
+        self.Conv3 = DoubleConv(in_channels=64,out_channels=128, dropout=0.2)
+        self.Conv4 = DoubleConv(in_channels=128,out_channels=256, dropout=0.2)
+        # self.Conv5 = DoubleConv(in_channels=256,out_channels=512, dropout=0.3)
 
-        self.Up5 = Up_Conv(in_channels=256,out_channels=128)
-        self.Att5 = Attention_block(F_g=128,F_l=128,F_int=64)
-        self.Up_Conv5 = DoubleConv(in_channels=256, out_channels=128, dropout=0.2)
+        # self.Up5 = Up_Conv(in_channels=512,out_channels=256)
+        # self.Att5 = Attention_block(F_g=256,F_l=256,F_int=128)
+        # self.Up_Conv5 = DoubleConv(in_channels=512, out_channels=256, dropout=0.2)
 
-        self.Up4 = Up_Conv(in_channels=128,out_channels=64)
-        self.Att4 = Attention_block(F_g=64,F_l=64,F_int=32)
-        self.Up_Conv4 = DoubleConv(in_channels=128, out_channels=64, dropout=0.2)
+        self.Up4 = Up_Conv(in_channels=256,out_channels=128)
+        self.Att4 = Attention_block(F_g=128,F_l=128,F_int=64)
+        self.Up_Conv4 = DoubleConv(in_channels=256, out_channels=128, dropout=0.2)
         
-        self.Up3 = Up_Conv(in_channels=64,out_channels=32)
-        self.Att3 = Attention_block(F_g=32,F_l=32,F_int=32)
-        self.Up_Conv3 = DoubleConv(in_channels=64, out_channels=32, dropout=0.1)
+        self.Up3 = Up_Conv(in_channels=128,out_channels=64)
+        self.Att3 = Attention_block(F_g=64,F_l=64,F_int=32)
+        self.Up_Conv3 = DoubleConv(in_channels=128, out_channels=64, dropout=0.1)
         
-        self.Up2 = Up_Conv(in_channels=32,out_channels=32, dropout=0.1)
-        self.Att2 = Attention_block(F_g=32,F_l=32,F_int=32)
-        self.Up_Conv2 = DoubleConv(in_channels=32, out_channels=32, dropout=0.1)
+        self.Up2 = Up_Conv(in_channels=64,out_channels=32, dropout=0.1)
+        self.Att2 = Attention_block(F_g=32,F_l=32,F_int=16)
+        self.Up_Conv2 = DoubleConv(in_channels=64, out_channels=32, dropout=0.1)
 
         self.Conv_1x1 = nn.Conv2d(32,self.output_ch,kernel_size=1,stride=1,padding=0)
 

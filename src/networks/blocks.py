@@ -70,8 +70,8 @@ class Up_Conv(nn.Module):
             nn.Upsample(scale_factor=2),
             nn.Conv2d(in_channels,out_channels,kernel_size=3,stride=1,padding=1,bias=True),
 		    nn.BatchNorm2d(out_channels),
-			nn.ReLU(inplace=True),
-            nn.Dropout(p=dropout, inplace=False)
+			nn.ReLU(inplace=True)
+            # ,nn.Dropout(p=dropout, inplace=False)
         )
 
   def forward(self,x):
@@ -143,9 +143,9 @@ class Attention_block(nn.Module):
         return x*psi
 
 # adapt from https://github.com/LeeJunHyun/Image_Segmentation/
-class R2Conv_block(nn.Module):
+class RRCNN_block(nn.Module):
     def __init__(self,in_channels,out_channels,t=2):
-        super(R2Conv_block,self).__init__()
+        super(RRCNN_block,self).__init__()
         self.RCNN = nn.Sequential(
             Recurrent_block(out_channels,t=t),
             Recurrent_block(out_channels,t=t)

@@ -304,7 +304,7 @@ def get_class_weight(dataset):
 def show_training(EPOCHS, train_loss, valid_loss, train_dice, valid_dice, train_jaccard, valid_jaccard):
     """plot all scores during training"""
     plt.figure(figsize=(18,8))
-    plt.suptitle('Learning Curve', fontsize=18)
+    plt.suptitle('CARes-UNet-256 Learning Curve', fontsize=18)
 
     plt.subplot(1,3,1)
     plt.plot(np.arange(EPOCHS)+1, train_loss, label='Training Loss')

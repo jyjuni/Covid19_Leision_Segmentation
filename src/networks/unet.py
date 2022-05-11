@@ -55,16 +55,16 @@ class UNet(nn.Module):
         self.n_channels = n_channels
         self.n_classes = n_classes
 
-        self.inputL = DoubleConv(n_channels, 32, 0.1)
-        self.down1 = Down(32, 64, 0.1)
-        self.down2 = Down(64, 128, 0.2)
-        self.down3 = Down(128, 256, 0.2)
-        self.down4 = Down(256, 512, 0.3)
-        self.up1 = Up(512, 256, 0.2)
-        self.up2 = Up(256, 128, 0.2)
-        self.up3 = Up(128, 64, 0.1)
-        self.up4 = Up(64, 32, 0.1)
-        self.outputL = OutConv(32, n_classes, 0.1)
+        self.inputL = DoubleConv(n_channels, 64, 0.1)
+        self.down1 = Down(64, 128, 0.1)
+        self.down2 = Down(128, 256, 0.2)
+        self.down3 = Down(256, 512, 0.2)
+        self.down4 = Down(512, 1024, 0.3)
+        self.up1 = Up(1024, 512, 0.2)
+        self.up2 = Up(512, 256, 0.2)
+        self.up3 = Up(256, 128, 0.1)
+        self.up4 = Up(128, 64, 0.1)
+        self.outputL = OutConv(64, n_classes)
 
 
 

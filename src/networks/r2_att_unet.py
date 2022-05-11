@@ -2,44 +2,44 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from .blocks import DoubleConv, Down, R2Conv_block, Up, OutConv, Attention_block, R2Conv_block, Up_Conv
+from .blocks import DoubleConv, Down, RRCNN_block, Up, OutConv, Attention_block, Up_Conv
 
 
 class R2AttU_Net(nn.Module):
-    def __init__(self, name, in_channels=3, out_channels=1, t=2):
+    def __init__(self,name, img_ch=3,output_ch=1,t=2):
         super(R2AttU_Net,self).__init__()
         self.name = name
-
         self.Maxpool = nn.MaxPool2d(kernel_size=2,stride=2)
         self.Upsample = nn.Upsample(scale_factor=2)
 
-        self.RRCNN1 = R2Conv_block(in_channels=in_channels,out_channels=32,t=t)
+        self.RRCNN1 = RRCNN_block(in_channels=img_ch,out_channels=32,t=t)
 
-        self.RRCNN2 = R2Conv_block(in_channels=32,out_channels=64,t=t)
+        self.RRCNN2 = RRCNN_block(in_channels=32,out_channels=64,t=t)
         
-        self.RRCNN3 = R2Conv_block(in_channels=64,out_channels=128,t=t)
+        self.RRCNN3 = RRCNN_block(in_channels=64,out_channels=128,t=t)
         
-        self.RRCNN4 = R2Conv_block(in_channels=128,out_channels=256,t=t)
+        self.RRCNN4 = RRCNN_block(in_channels=128,out_channels=256,t=t)
         
-        self.RRCNN5 = R2Conv_block(in_channels=256,out_channels=512,t=t)
+        self.RRCNN5 = RRCNN_block(in_channels=256,out_channels=512,t=t)
         
+
         self.Up5 = Up_Conv(in_channels=512,out_channels=256)
         self.Att5 = Attention_block(F_g=256,F_l=256,F_int=128)
-        self.Up_RRCNN5 = R2Conv_block(in_channels=512, out_channels=256,t=t)
+        self.Up_RRCNN5 = RRCNN_block(in_channels=512, out_channels=256,t=t)
         
         self.Up4 = Up_Conv(in_channels=256,out_channels=128)
         self.Att4 = Attention_block(F_g=128,F_l=128,F_int=64)
-        self.Up_RRCNN4 = R2Conv_block(in_channels=256, out_channels=128,t=t)
+        self.Up_RRCNN4 = RRCNN_block(in_channels=256, out_channels=128,t=t)
         
         self.Up3 = Up_Conv(in_channels=128,out_channels=64)
         self.Att3 = Attention_block(F_g=64,F_l=64,F_int=32)
-        self.Up_RRCNN3 = R2Conv_block(in_channels=128, out_channels=64,t=t)
+        self.Up_RRCNN3 = RRCNN_block(in_channels=128, out_channels=64,t=t)
         
         self.Up2 = Up_Conv(in_channels=64,out_channels=32)
         self.Att2 = Attention_block(F_g=32,F_l=32,F_int=16)
-        self.Up_RRCNN2 = R2Conv_block(in_channels=64, out_channels=32,t=t)
+        self.Up_RRCNN2 = RRCNN_block(in_channels=64, out_channels=32,t=t)
 
-        self.Conv_1x1 = nn.Conv2d(32,out_channels,kernel_size=1,stride=1,padding=0)
+        self.Conv_1x1 = nn.Conv2d(32,output_ch,kernel_size=1,stride=1,padding=0)
 
 
     def forward(self,x):
