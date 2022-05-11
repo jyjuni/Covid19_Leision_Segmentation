@@ -4,7 +4,7 @@
 The data used for train, validation and testing in this project can be found [here](https://drive.google.com/file/d/1G0Wsk9_QemMkoNRRkGbywytLGNHPBFZ6/view?usp=sharing).
 
 ## All 2D Data
-All 2D slices from the original data can be found [here](https://drive.google.com/drive/folders/10p8aAh9FRXJVjSNQpHfTC9AbyHDGFIjA?usp=sharing). 
+All 2D slices from the original data can be found [here](https://drive.google.com/drive/folders/10p8aAh9FRXJVjSNQpHfTC9AbyHDGFIjA?usp=sharing), with restricted access. 
 
 
 ## Original Data 
